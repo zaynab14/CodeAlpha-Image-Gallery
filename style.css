@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+html {
+    --primary-color: #05555c;
+    --links-color: #186f78;
+    --text-color: #3f7277;
+    --body-color: #ffffff; /* Define body color for button text */
+}
+body {
+    width: 100%;
+    min-height: 100vh; /* Ensure body covers the full height of the viewport */
+    background: linear-gradient(135deg, #080424, #05555c); /* Directly apply gradient background */
+    color: var(--text-color); /* Ensure text is readable on the gradient background */
+}
+
+.Image-Gallery {
+    width: 100%;
+    padding: 30px 8%;
+    background-color: transparent; /* Ensure the gallery has no background color */
+}    
+.Image-Gallery .section-head {
+    max-width: 700px;
+    margin: 0px auto 25px;
+    text-align: center;
+}
+.section-head h1 {
+    position: relative;
+    font-size: 32px;
+    margin: 10px 0px 30px;
+    color: var(--primary-color);
+}
+.button-gp {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.button-gp .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #ffffff;
+    color: var(--primary-color);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+.button-gp .button.active {
+    background-color: var(--primary-color);
+    color: var(--body-color);
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px;
+    margin: 0; /* Reset margin */
+    background-color: transparent; /* Ensure the gallery has no background color */
+}
+.gallery .item {
+    position: relative;
+    width: calc(33.333% - 16px); /* Adjust width to account for gap */
+    height: 300px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid var(--primary-color); /* Add border to the item */
+    background-color: var(--body-color); /* Ensure item background color is consistent */
+    margin: 0; /* Reset margin */
+}
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.3s;
+}
+.gallery .item:hover img {
+    transform: scale(1.15);
+}
+.item .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(5, 85, 92, 0.7);
+    color: var(--body-color);
+    padding: 15px;
+    overflow: hidden;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+}
+.item:hover .overlay {
+    opacity: 1;
+}
+.item .overlay a {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 2px solid var(--body-color);
+    color: var(--body-color);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.item .overlay a:hover {
+    background-color: var(--body-color);
+    color: var(--primary-color);
+}
+@media (max-width: 1024px) {
+    .gallery .item {
+        width: calc(50% - 12px); /* Adjust width to account for gap */
+    }
+}
+@media (max-width: 600px) {
+    .gallery .item {
+        width: 100%; /* full width for small screens */
+    }
+}

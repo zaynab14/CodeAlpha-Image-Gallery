@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <title>Gallery</title>
+</head>
+<body>
+    <section class="Image-Gallery">
+        <header class="section-head">
+            <h1><b>My Gallery</b></h1>
+        </header>
+        <main class="mainContainer">
+            <div class="button-gp">
+                <button class="button active" data-filter="*">All</button>
+                <button class="button" data-filter=".Dogs">Dogs</button>
+                <button class="button" data-filter=".Cats">Cats</button>
+                <button class="button" data-filter=".Rabbits">Rabbits</button>
+            </div>
+            <div class="gallery">
+                <div class="item Dogs">
+                    <img src="d1.jpg" alt="Dog1">
+                    <div class="overlay">
+                        <a href="#">VIEW MORE</a>
+                    </div>
+                </div>
+                <div class="item Dogs">
+                   <img src="d2.jpg" alt="Dogs2">
+                   <div class="overlay">
+                       <a href="#">VIEW MORE</a>
+                   </div>
+                </div> 
+                    <div class="item Dogs">
+                       <img src="d3.jpg" alt="Dogs3">
+                       <div class="overlay">
+                           <a href="#">VIEW MORE</a>
+                       </div>
+                    </div> 
+                    <div class="item Cats">
+                       <img src="c1.jpg" alt="Cat1">
+                       <div class="overlay">
+                           <a href="#">VIEW MORE</a>
+                       </div>
+                    </div> 
+                    <div class="item Cats">
+                        <img src="c2.jpg" alt="Cat2">
+                        <div class="overlay">
+                            <a href="#">VIEW MORE</a>
+                        </div>
+                     </div> 
+                     <div class="item Cats">
+                        <img src="c3.jpg" alt="Cat3">
+                        <div class="overlay">
+                            <a href="#">VIEW MORE</a>
+                        </div>
+                     </div>
+                     <div class="item Rabbits">
+                        <img src="r1.jpg" alt="Rabbit">
+                        <div class="overlay">
+                            <a href="#">VIEW MORE</a>
+                        </div>
+                     </div> 
+                     <div class="item Rabbits">
+                        <img src="r2.jpg" alt="Rabbit2">
+                        <div class="overlay">
+                            <a href="#">VIEW MORE</a>
+                        </div>
+                     </div> 
+                     <div class="item Rabbits">
+                        <img src="r3.jpg" alt="Rabbit3">
+                        <div class="overlay">
+                            <a href="#">VIEW MORE</a>
+                        </div>
+                     </div>      
+            </div>
+        </main>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var $galleryContainer = $('.gallery').isotope({
+                 itemSelector: '.item',
+                layoutMode: 'masonry'
+            });
+
+            $('.button-gp .button').on('click',function(){
+                $('.button-gp .button').removeClass('active');
+                $(this).addClass('active');
+
+                var value = $(this).attr('data-filter');
+                $galleryContainer.isotope({
+                    filter: value
+                 });
+            });
+        });
+    </script>
+</body>
+</html>
+
